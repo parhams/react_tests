@@ -24,7 +24,6 @@ body{
     display: flex;
     font-size: 20px;
     background: black;
-    color: rgb(30, 210, 30);
 }
 
 .redButton {
@@ -67,4 +66,28 @@ body{
     font-size: 16px;
     margin: 4px 2px;
     border-radius: 50%;
+  }
+
+  .actionButton {
+    width: 100px;
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
+  }
+
+  .item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .item {
+    padding: 3px;
   }

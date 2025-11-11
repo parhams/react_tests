@@ -1,22 +1,36 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import TimeList from './TimeList';
 import './style.css';
-
 import Hello from './Hello';
 import Timer from './Timer';
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            title : "سلام بر دوستان خوبم"
-        }
-    }
-    render(){
-    return (<div className='main'>
-      <Hello title={this.state.title}/>
-      <Timer/>
-      </div>)
-    }
+import { TestContext } from './testContext';
+
+const App = () => {
+  const [title, setTitle] = useState("به پروژه من خوش آمدید")
+  const [isLight, setIsLight] = useState(false);
+  const [timeArr, setTimeArr] = useState([])
+
+  const handelsetIsLight = () => {
+    setIsLight(!isLight)
   }
 
-  export default App;
+  useEffect = [() => {
+    console.log("useEffect")
+    return () => {
+
+    }
+
+  }, isLight]
+
+  return (
+    <TestContext.Provider value={{timeArr, setTimeArr}}>
+      <div className='main' style={{ background: isLight ? "white" : "black" }}>
+        <Hello title={title} />
+        <Timer isLight={isLight} handelsetIsLight={handelsetIsLight} />
+        <TimeList/>
+      </div>
+      </TestContext.Provider>  
+  )
+}
+
+export default App;
