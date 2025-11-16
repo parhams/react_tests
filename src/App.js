@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import TimeList from './TimeList';
-import './style.css';
-import Hello from './Hello';
-import Timer from './Timer';
-import { TestContext } from './testContext';
+import { useActionState, useState } from "react";
+import TaskItems from "./TaskItems";
+import TopForm from "./TopForm";
+import { TaskContext } from "./TaskContext";
 
 const App = () => {
-  const [title, setTitle] = useState("به پروژه من خوش آمدید")
-  const [isLight, setIsLight] = useState(false);
-  const [timeArr, setTimeArr] = useState([])
+  const [taskItems, setTaskItems] = useState([
+    {
+      id:1,
+      titel: "کار شماره 1",
+      done: false
 
-  const handelsetIsLight = () => {
-    setIsLight(!isLight)
-  }
+    },
+    {
+      id:2,
+      titel:"کار شماره 2",
+      done: true
 
-  useEffect = [() => {
-    console.log("useEffect")
-    return () => {
+    },
+    {
+      id:3,
+      titel:"کار شماره 3",
+      done: false
+    },
+  ]
 
-    }
-
-  }, isLight]
-
+  )
   return (
-    <TestContext.Provider value={{timeArr, setTimeArr}}>
-      <div className='main' style={{ background: isLight ? "white" : "black" }}>
-        <Hello title={title} />
-        <Timer isLight={isLight} handelsetIsLight={handelsetIsLight} />
-        <TimeList/>
+    <div className="container w-100 h-100 p-3">
+      <div className="row h-100 justify-content-center align-align-align-items-start">
+        <div className="col-12 col-md-8 col-lg-6 bg-light shadow rounded-3 p-3 h_fit">
+          <TaskContext.Provider value={{taskItems, setTaskItems}}>
+         <TopForm/>
+         <TaskItems/>
+         </TaskContext.Provider>
+        </div>
       </div>
-      </TestContext.Provider>  
+    </div> 
   )
 }
 
