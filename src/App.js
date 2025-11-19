@@ -7,19 +7,19 @@ const App = () => {
   const [taskItems, setTaskItems] = useState([
     {
       id:1,
-      titel: "کار شماره 1",
+      title: "کار شماره 1",
       done: false
 
     },
     {
       id:2,
-      titel:"کار شماره 2",
+      title:"کار شماره 2",
       done: true
 
     },
     {
       id:3,
-      titel:"کار شماره 3",
+      title:"کار شماره 3",
       done: false
     },
   ]
