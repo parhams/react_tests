@@ -8,6 +8,8 @@ import Footer from "./user/Footer";
 import Work from "./work/Work";
 import { MainContext } from "./contexts/MainContext";
 import { Navigate, Route, Routes } from "react-router-dom";
+import WithAlert2 from "./HOC/WithAlert2";
+import Comments from "./post/Comments";
 
 const Content = () => {
     const { showMenu, setShowMenu } = useContext(MainContext);
@@ -17,6 +19,8 @@ const Content = () => {
         e.stopPropagation();
         setShowMenu(prev => !prev);
     };
+
+    const renderUser = (Confirm, Alert)=> <User Confirm={Confirm} Alert={Alert} />
 
     return (
         <div
@@ -30,14 +34,27 @@ const Content = () => {
             ></i>
 
             <Routes>
-                <Route path="/" element={isUser ? <User /> : <Navigate replace to="/post" />} />
+                {/* <Route path="/" element={isUser ? <User /> : <Navigate replace to="/post" />} /> */}
+                <Route path="/" element={
+                    <WithAlert2>
+                        {renderUser}
+                    </WithAlert2>
+                } />
                 <Route path="/user/add" element={<AddUser />}>
                     <Route path=":userId" element={<Footer />} />
                 </Route>
                 <Route path="/gallery" element={<Gallery />} />
                 <Route path="/group" element={<Group />} />
                 <Route path="/post" element={<Post />} />
+                <Route path="/post/comments" element={<Comments />}>
+                    <Route path=":postId" element={<Footer />} />
+                </Route>
                 <Route path="/work" element={<Work />} />
+                <Route path="*" element={
+                    <WithAlert2>
+                        {renderUser}
+                    </WithAlert2>
+                } />
             </Routes>
         </div>
     );

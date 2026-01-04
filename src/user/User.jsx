@@ -1,11 +1,13 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
 import { useEffect, useState } from 'react';
 import { jpAxios } from '../axios/JpAxios';
+// import WithAlert from '../HOC/WithAlert';
+import Confirm from '../util/Alerts.js';
 
 
-const User = () => {
+const User = (props) => {
     const navigate = useNavigate();
+    const {Confirm, Alert} = props
 
     // let promise = new Promise((resolve, reject)=> {
     //     console.log(1);
@@ -55,31 +57,21 @@ const User = () => {
         console.log(e.target.value)
         users.filter(u => u.name.include(e.target.value))
     }
-    const handelDelete = (itemId) => {
-        swal({
-            title: "حذف رکورد!",
-            text: `آیا از حذف رکورد ${itemId} اطمینان دارید؟`,
-            icon: "warning",
-            buttons: true,
-            dangermode: true
-        }).then(
-            (willDelete) => {
-                if (willDelete) {
-                    jpAxios.delete(`/users/${itemId}`).then(res => {
-                        if (res.status === 200) {
-                            const newUsers = users.filter(u => u.id !== itemId)
-                            setUsers(newUsers)
-                            swal("حذف با موفقیت انجام شد", { icon: "success", buttons: "متوجه شدم" });
-                        } else {
-                            swal("فرایند حذف با خطا مواجه شد", { icon: "danger", buttons: "متوجه شدم" });
-                        }
-                    }
-                    )
+    const handelDelete = async (itemId) => {
+        if (await Confirm( `آیا از حذف رکورد ${itemId} اطمینان دارید؟`)) {
+            jpAxios.delete(`/users/${itemId}`).then(res => {
+                if (res.status === 200) {
+                    const newUsers = users.filter(u => u.id !== itemId)
+                    setUsers(newUsers)
+                    Alert("حذف با موفقیت انجام شد", "success")
                 } else {
-                    swal("شما از حذف رکورد منصرف شدید");
+                    Alert("فرایند حذف با خطا مواجه شد", "danger")
                 }
             }
-        );
+            )
+        } else {
+            Alert("شما از حذف رکورد منصرف شدید", "info")
+        }
     }
     return (
         <div className="item-content mt-5 p-4 container-fluid">
@@ -97,7 +89,8 @@ const User = () => {
                     </Link>
                 </div>
             </div>
-            {users.length ? (<table className="table bg-light shadow">
+            {users.length ? (
+                <table className="table bg-light shadow">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -134,10 +127,10 @@ const User = () => {
                         </tr>))
                     }
                 </tbody>
-            </table>) : (<h4>کمی صبر کنید ...</h4>)}
+            </table>) : (<h4 className='text text-center text-info'>کمی صبر کنید ...</h4>)}
 
         </div>
     )
 }
 
-export default User;
+export default /*WithAlert(*/User/*)*/;
