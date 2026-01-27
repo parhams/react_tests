@@ -10,6 +10,7 @@ import { MainContext } from "./contexts/MainContext";
 import { Navigate, Route, Routes } from "react-router-dom";
 import WithAlert2 from "./HOC/WithAlert2";
 import Comments from "./post/Comments";
+import AddPost from "./post/AddPost.jsx";
 
 const Content = () => {
     const { showMenu, setShowMenu } = useContext(MainContext);
@@ -48,6 +49,9 @@ const Content = () => {
                 <Route path="/post" element={<Post />} />
                 <Route path="/post/comments" element={<Comments />}>
                     <Route path=":postId" element={<Footer />} />
+                </Route>
+                <Route path="/post/add" element={<AddPost />}>
+                    <Route path=":postId"/>
                 </Route>
                 <Route path="/work" element={<Work />} />
                 <Route path="*" element={

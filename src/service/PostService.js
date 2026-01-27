@@ -14,7 +14,7 @@ export const AddPostService = async(data)=> {
                 await jpAxios.post('/posts', data).then(res => {
                 console.log(res)
                 swal({
-                    text: `پست ${res.data.name} اضافه شد`,
+                    text: `پست ${res.data.title} اضافه شد`,
                     icon: "success"
                 })
             })
@@ -23,7 +23,7 @@ export const UpdatePostService = async(data, postId)=> {
                 await jpAxios.put(`/posts/${postId}`, data).then(res => {
                 console.log(res)
                 swal({
-                    text: `پست ${res.data.name} ویرایش شد`,
+                    text: `پست ${res.data.id} ویرایش شد`,
                     icon: "success"
                 })
             })

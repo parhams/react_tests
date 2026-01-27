@@ -1,6 +1,8 @@
 const Gallery = () => {
     return (
-        <h4 className="text text-cenrter text-dark">مدیریت گالری ها</h4>
+        <div className="text text-cenrter mt-3">
+            <h4 className="text text-center text-dark" >مدیریت گالری ها</h4>
+        </div>
     )
 }
 

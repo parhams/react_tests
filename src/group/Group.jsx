@@ -1,6 +1,8 @@
 const Group = () => {
     return (
-        <h4 className="text text-cenrter text-dark">مدیریت گروه ها</h4>
+        <div className="text text-cenrter mt-3">
+            <h4 className="text text-center text-dark" >مدیریت گروه ها</h4>
+        </div>
     )
 }
 
