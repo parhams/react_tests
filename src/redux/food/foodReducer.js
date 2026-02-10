@@ -1,4 +1,4 @@
-import { BUY_SANDWICH } from "./foodType"
+import { BUY_SANDWICH } from "./foodTypes"
 
 const foodState = {
     sandwich: 20

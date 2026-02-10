@@ -1,7 +1,10 @@
-import fruitReducer from "../fruit/FruitReducer";
+import { combineReducers } from "redux";
+import fruitReducer from "../fruit/fruitReducer";
 import foodReducer from "./foodReducer";
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers({
     fruit: fruitReducer,
-    fkood: foodReducer 
+    food: foodReducer 
 })
+
+export default rootReducer;

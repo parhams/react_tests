@@ -1,3 +1,4 @@
+import axios from "axios"
 import { USER_GET_RESPONSE, USER_SEND_REQUEST } from "./userTypes"
 
 export const sendUserReuest = ()=> {
@@ -23,8 +24,9 @@ export const getUserError = (error)=> {
 export const getUsers = () => {
     return (dispatch) => {
         dispatch(sendUserReuest());
-        axios.get('').then(res=> {
-            dispatch(getUserResponse(res.data));
+        axios.get('https://jsonplaceholder.typicode.com/users').then(res=> {
+            console.log(res.data)
+           res.data.constructor === Array ? dispatch(getUserResponse(res.data)) : dispatch(getUserError('خطای دریافت لیست کاربران'))
         }).catch(error=> {
             dispatch(getUserError(error.message));
         })

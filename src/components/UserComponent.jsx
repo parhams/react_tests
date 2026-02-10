@@ -1,4 +1,8 @@
+import { useDispatch, useSelector } from "react-redux";
+import { getUsers } from "../redux/user/userActions";
+
 const UserComponent = ()=> {
+
     const {loading, data, error} = useSelector(state=> state);
     const dispatch = useDispatch();
 
@@ -9,7 +13,7 @@ const UserComponent = ()=> {
     return (
         <div>
             <div className='text-center mt-5'>
-                <button className='btn btn-success' >دریافت کاربران</button>
+                <button className='btn btn-success' onClick={handelGetUsers} >دریافت کاربران</button>
                 {
                     loading ? (
                         <div className="text-center text-secondary mt-5">
@@ -20,17 +24,19 @@ const UserComponent = ()=> {
 
                         </div>
                     ) : data.length > 0 ? (
+                        <div className="text-center text-dark mt-5">
                         <ul className="text-center">
                             {
                                 data.map(u=>(
-                                    <li key={u.id}>{u.username}</li>
+                                    <li className="" key={u.id}>{u.username}</li>
                                 ))
                             }
                         </ul>
+                        </div>
                     ) : error ? (
                         <h4 className="text-center text-danger mt-5">{error}</h4>
                     ) : (
-                    <h4 className="text-center text-dark mt-5">کاربران را دریافت کنید</h4>
+                    <h4 className="text-center text-dark mt-5" onClick={handelGetUsers}>کاربران را دریافت کنید</h4>
                     )
                 }
             </div>

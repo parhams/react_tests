@@ -6,7 +6,7 @@ const userInit = {
     error: ''
 }
 
-export const userReducer(state= userInit, action) => {
+const userReducer = (state= userInit, action) => {
     switch (action.type) {
         case USER_SEND_REQUEST:
             return {...state, loading: true}
@@ -18,3 +18,5 @@ export const userReducer(state= userInit, action) => {
             return state;
     }
 }
+
+export default userReducer;

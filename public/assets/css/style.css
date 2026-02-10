@@ -9,6 +9,9 @@
 
 body{
     background: url(/assets/images/body_back4.jpg) repeat;
+    background-repeat: no-repeat;   /* جلوگیری از تکرار */
+    background-size: cover;        /* پر کردن کل صفحه */
+    background-position: center;   /* وسط چین شدن عکس */
 }
 
 *{
@@ -765,4 +768,101 @@ td , th {
     padding: 1rem;
     border-radius: 2rem;
     box-shadow: 0 0 20px black;
+}
+
+.back_usual {
+    background: url('../images/weather/usual.webp');
+    background-repeat: no-repeat;   /* جلوگیری از تکرار */
+    background-size: cover;        /* پر کردن کل صفحه */
+    background-position: center;   /* وسط چین شدن عکس */    
+}
+
+.back_cold {
+    background: url('../images/weather/cold.webp');
+    background-repeat: no-repeat;   /* جلوگیری از تکرار */
+    background-size: contain;        /* پر کردن کل صفحه */
+    background-position: center;   /* وسط چین شدن عکس */    
+}
+
+.back_warm {
+    background: url('../images/weather/warm.webp');
+    background-repeat: no-repeat;   /* جلوگیری از تکرار */
+    background-size: cover;        /* پر کردن کل صفحه */
+    background-position: center;   /* وسط چین شدن عکس */    
+}
+
+/* کانتینر اصلی برنامه */
+.app {
+    min-height: 100vh;
+    transition: all 0.4s ease;
+}
+
+/* اینپوت جستجو */
+.search_input {
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(6px);
+}
+
+/* رنگ متن */
+.text_color {
+    color: #ffffff;
+}
+
+/* رنگ placeholder */
+.placeholder_color::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+/* چون d_block نوشتی */
+.d_block {
+    display: block;
+}
+
+/* احتمالاً latin_text مدنظر بوده */
+.lathin_text {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+.input_underline_glass {
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
+    padding: 10px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input_underline_glass:focus {
+    border-bottom-color: #00f2fe;
+    background: rgba(255,255,255,0.1);
+}
+
+.input_underline {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(255,255,255,0.6);
+    background: transparent;
+    padding: 8px 4px;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* رنگ placeholder */
+.input_underline::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+/* افکت فوکوس */
+.input_underline:focus {
+    border-bottom: 2px solid #ffffff;
 }
