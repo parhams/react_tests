@@ -780,7 +780,7 @@ td , th {
 .back_cold {
     background: url('../images/weather/cold.webp');
     background-repeat: no-repeat;   /* جلوگیری از تکرار */
-    background-size: contain;        /* پر کردن کل صفحه */
+    background-size: cover;        /* پر کردن کل صفحه */
     background-position: center;   /* وسط چین شدن عکس */    
 }
 

@@ -34,7 +34,6 @@ const PersianDate = () => {
 
         const updateDate = ()=> {
             let m = jMoment();
-            console.log("jday = " + m.day())
 
             let finalDate =
                 `${weekDays[m.day()]} ${m.jDate()} ${monthNames[m.jMonth()]} ${m.jYear()}`;
