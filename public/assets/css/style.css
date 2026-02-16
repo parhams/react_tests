@@ -866,3 +866,31 @@ td , th {
 .input_underline:focus {
     border-bottom: 2px solid #ffffff;
 }
+
+.temp-box {
+    padding: 15px 35px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* سرد */
+.temp-box.cold {
+    background: rgba(0, 123, 255, 0.3);
+}
+
+/* معمولی */
+.temp-box.usual {
+    background: rgba(40, 167, 69, 0.3);
+}
+
+/* گرم */
+.temp-box.warm {
+    background: rgba(255, 99, 71, 0.3);
+}

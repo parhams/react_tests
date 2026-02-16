@@ -7,7 +7,8 @@ import App1 from './App1';
 import App2 from './App2';
 import App from './components/App';
 import App3 from './components/App3';
+import App4 from './components/App4';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<App3/>)
+root.render(<App4/>)

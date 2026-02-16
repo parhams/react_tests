@@ -1,6 +1,6 @@
 import axios from "axios"
 import { receiveWeatherError, receiveWeatherResponse } from "./WeatherAction"
-import { call, put, takeEvery } from "redux-saga/effects"
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects"
 import { SEND_WEATHER_REQUEST } from "./WeatherTypes"
 
 const getWeatherRequest=(query) =>{
@@ -15,10 +15,10 @@ function* handelGetWeather(action) {
         yield put(receiveWeatherResponse(res.data))
 
     }catch(error) {
-        yield put(receiveWeatherError(error.message))
+        yield put(receiveWeatherError('شهر یا کشور مورد نظر یافت نشد!'))
     }
 }
 
 export function* watchersaga() {
-    yield takeEvery(SEND_WEATHER_REQUEST, handelGetWeather)
+    yield takeLatest(SEND_WEATHER_REQUEST, handelGetWeather)
 }
