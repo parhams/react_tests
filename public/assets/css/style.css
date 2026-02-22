@@ -894,3 +894,9 @@ td , th {
 .temp-box.warm {
     background: rgba(255, 99, 71, 0.3);
 }
+
+.delete_icon {
+    position: absolute;
+    top: 11px;
+    left: 3px;
+}
