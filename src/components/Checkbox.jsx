@@ -2,7 +2,7 @@ import React from 'react';
 import PersonnalError from './PersonnalError';
 import { ErrorMessage, Field } from 'formik';
 
-const Radio = ({ name, label, options }) => {
+const Checkbox = ({ name, label, options }) => {
     return (
         <div className="mb-3">
             
@@ -13,7 +13,7 @@ const Radio = ({ name, label, options }) => {
                     {label}
                 </label>
 
-                {/* radio group */}
+                {/* checkbox group */}
                 <div>
                     {options.map(o => (
                         <div
@@ -21,14 +21,14 @@ const Radio = ({ name, label, options }) => {
                             className="form-check form-check-reverse form-check-inline"
                         >
                             <Field
-                                type="radio"
+                                type="checkbox"
                                 name={name}
                                 value={o.id}
                                 className="form-check-input"
-                                id={`radio-${o.id}`}
+                                id={`checkbox${o.id}`}
                             />
                             <label
-                                htmlFor={`radio-${o.id}`}
+                                htmlFor={`checkbox${o.id}`}
                                 className="form-check-label"
                             >
                                 {o.value}
@@ -44,4 +44,4 @@ const Radio = ({ name, label, options }) => {
     );
 };
 
-export default Radio;
+export default Checkbox;

@@ -18,12 +18,22 @@ const initialValues = {
     bio: '',
     remember: false,
     education: '',
-    gender: '0'
+    gender: "1",
+    skill: []
 }
 
 const genders = [
-    {id: 0, value: 'مرد'},
-    {id: 1, value: 'زن'}
+    {id: "1", value: 'مرد'},
+    {id: "2", value: 'زن'}
+]
+
+const skills = [
+    {id: "0", value: 'HTML'},
+    {id: "1", value: 'CSS'},
+    {id: "2", value: 'JAVASCRIPT'},
+    {id: "3", value: 'JAVA'},
+    {id: "4", value: 'BOOTSTRAP'},
+    {id: "5", value: 'REACT'}
 ]
 
 const educations = [
@@ -165,6 +175,13 @@ const LoginForm = (props) => {
                                         name="gender"
                                         label="جنسیت"
                                         options={genders}
+                                    />
+                                    {/* Education */}
+                                    <FormikControl
+                                        control="checkbox"
+                                        name="skill"
+                                        label="مهارتها"
+                                        options={skills}
                                     />
                                     {/* City */}
                                     <div className="mb-3 col-6">
