@@ -88,7 +88,7 @@ const validateBio = value => {
         error = "فیلد بیوگرافی الزامی است"
 }
 
-const LoginForm = (props) => {
+const Register = (props) => {
 
     const [savedData, setSavedData] = useState(null)
     const [myValues, setMyValues] = useState(null)
@@ -272,4 +272,4 @@ const LoginForm = (props) => {
     );
 };
 
-export default LoginForm;
+export default Register;

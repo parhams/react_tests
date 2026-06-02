@@ -1,16 +1,24 @@
 import React from 'react';
 import PersonnalError from './PersonnalError';
-import { ErrorMessage, FastField } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
-const Input = (props) => {
-    const { name, type, label } = props;
+const Input = ({ name, type, label, icon }) => {
     return (
-        <div className="mb-3">
-            <label className="form-label">{label}</label>
-            <FastField type={type} name={name} id={name} className="form-control" />
+        <div className="mb-3 position-relative">
+
+            <i className={`${icon} input-icon`} />
+
+            <Field
+                type={type}
+                name={name}
+                id={name}
+                className="form-control custom-input"
+                placeholder={label}
+            />
+
             <ErrorMessage name={name} component={PersonnalError} />
         </div>
     );
-}
+};
 
 export default Input;

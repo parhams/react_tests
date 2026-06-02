@@ -1,25 +1,3 @@
-@font-face{
-    font-family: "BYekan";
-    src: url("../fonts/yekan/BYekan-webfont.eot") format("eot"),
-        url("../fonts/yekan/BYekan-webfont.woff") format("woff"),
-        url("../fonts/yekan/BYekan-webfont.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
-body{
-    background: url(/assets/images/body_back4.jpg) repeat;
-    background-repeat: no-repeat;   /* جلوگیری از تکرار */
-    background-size: cover;        /* پر کردن کل صفحه */
-    background-position: center;   /* وسط چین شدن عکس */
-}
-
-*{
-    font-family: "BYekan";
-    direction: rtl;
-    text-align: right;
-    /* box-sizing: content-box */
-}
 a{
     text-decoration: none !important;
 }
@@ -545,7 +523,7 @@ td , th {
     left: 0;
     overflow: auto;
     transition: all 300ms ease;
-    background: url(/assets/images/body_back4.png) repeat;
+    background: #0b0f1a !important;
 }
 #content_section.with_sidebar{
     width: calc(100% - 250px);
@@ -725,7 +703,6 @@ td , th {
   }
   
   .select-search-input{
-    font-family: "BYekan" !important;
     text-align: right !important;
     height: 39px !important;
     border: 1px solid #ced4da !important;
@@ -737,7 +714,6 @@ td , th {
   }
 
   .select-search-select *{
-    font-family: "BYekan" !important;
     text-align: right !important;
   }
 
@@ -824,7 +800,7 @@ td , th {
 }
 
 /* احتمالاً latin_text مدنظر بوده */
-.lathin_text {
+.latin_text {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 1px;
     text-transform: capitalize;
@@ -899,4 +875,150 @@ td , th {
     position: absolute;
     top: 11px;
     left: 3px;
+}
+
+*{
+    box-sizing:border-box;
+    font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Vazirmatn',sans-serif !important;
+    background:
+        radial-gradient(circle at 20% 20%, #1f2a48, transparent 40%),
+        radial-gradient(circle at 80% 80%, #0f3460, transparent 40%),
+        #0b0f1a;
+    color:#fff;    
+}
+
+.login-box{
+    width:100%;
+    max-width:380px;
+    padding:40px 30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+    position:relative;
+    overflow:hidden;
+}
+
+.login-box::before{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:150px;
+    background:#2563eb;
+    filter:blur(100px);
+    top:-50px;
+    left:-50px;
+    opacity:.4;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:20px;
+}
+
+.input-group input{
+    width:100%;
+    padding:12px 45px 12px 12px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.05);
+    color:#fff;
+    outline:none;
+    transition:.3s;
+    font-size:14px;
+}
+
+.input-group input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 15px rgba(37,99,235,0.6);
+}
+
+.input-group i{
+    position:absolute;
+    top:50%;
+    right:15px;
+    transform:translateY(-50%);
+    opacity:.6;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(37,99,235,0.5);
+}
+
+.links{
+    text-align:center;
+    margin-top:20px;
+    font-size:13px;
+    opacity:.8;
+}
+
+.links a{
+    color:#60a5fa;
+    text-decoration:none;
+    margin:0 5px;
+}
+
+.links a:hover{
+    text-decoration:underline;
+}
+
+.form-control {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.login-wrapper{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    right: 12px;   /* برای RTL */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0a46ec; /* آبی Bootstrap */
+    pointer-events: none;
+}
+
+.custom-input {
+    padding-right: 40px; /* جا برای آیکن */
 }

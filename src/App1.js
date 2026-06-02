@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import TimeList from './TimeList';
-import './style.css';
 import Hello from './Hello';
 import Timer from './Timer';
 import { TestContext } from './testContext';
-import './style.css';
 
 const App = () => {
   const [title, setTitle] = useState("به پروژه من خوش آمدید")

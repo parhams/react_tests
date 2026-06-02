@@ -1,6 +1,5 @@
 import React from 'react';
 import { TestContext } from './testContext'
-import './style.css';
 
 
 var interval
